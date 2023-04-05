@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+
+    <!-- 
+    - favicon
+  -->
+    <link rel="shortcut icon" href="../../favicon.svg" type="image/svg+xml" />
+
+    <!-- 
+  - custom css link
+-->
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/registerStyle.css" />
+    <script src="../main.js"></script>
+    <!-- 
+  - google font link
+-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header" data-header>
+      <div class="overlay" data-overlay></div>
+
+      <div class="header-top">
+        <div class="container">
+          <ul class="header-top-list">
+            <li>
+              <a href="mailto:info@homeverse.com" class="header-top-link">
+                <ion-icon name="mail-outline"></ion-icon>
+
+                <span>info@cryptoestate.com</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="header-top-link">
+                <ion-icon name="location-outline"></ion-icon>
+
+                <address>Bandra, India</address>
+              </a>
+            </li>
+          </ul>
+
+          <div class="wrapper">
+            <ul class="header-top-social-list">
+              <li>
+                <a href="#" class="header-top-social-link">
+                  <ion-icon name="logo-facebook"></ion-icon>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" class="header-top-social-link">
+                  <ion-icon name="logo-twitter"></ion-icon>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" class="header-top-social-link">
+                  <ion-icon name="logo-instagram"></ion-icon>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" class="header-top-social-link">
+                  <ion-icon name="logo-linkedin"></ion-icon>
+                </a>
+              </li>
+            </ul>
+
+            <button class="header-top-btn logOut">Add Listing</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="header-bottom">
+        <div class="container">
+          <a href="#" class="logo">
+            <img
+              class="landscape"
+              src="./images/logo1.png"
+              alt="Homeverse logo"
+              style="object-fit: cover; height: 56px; width: 245px"
+            />
+          </a>
+
+          <nav class="navbar" data-navbar>
+            <div class="navbar-top">
+              <a href="#" class="logo">
+                <img src="./images/logo.png" alt="Homeverse logo" />
+              </a>
+
+              <button
+                class="nav-close-btn"
+                data-nav-close-btn
+                aria-label="Close Menu"
+              >
+                <ion-icon name="close-outline"></ion-icon>
+              </button>
+            </div>
+
+            <div class="navbar-bottom">
+              <ul class="navbar-list">
+                <li>
+                  <a href="index.html" class="navbar-link" data-nav-link
+                    >Home</a
+                  >
+                </li>
+
+                <li>
+                  <a href="#about" class="navbar-link" data-nav-link>About</a>
+                </li>
+
+                <li>
+                  <a
+                    class="navbar-link"
+                    data-nav-link
+                    onclick="App.propertyDetails(1)"
+                    >Service</a
+                  >
+                </li>
+
+                <li>
+                  <a
+                    href="allProperties.html"
+                    class="navbar-link"
+                    data-nav-link
+                    onclick="App.getDetails()"
+                    >Property</a
+                  >
+                </li>
+
+                <li>
+                  <a href="" class="navbar-link" data-nav-link>Blog</a>
+                </li>
+
+                <li>
+                  <a href="#contact" class="navbar-link" data-nav-link
+                    >Contact</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="index.html"
+                    class="navbar-link logout-btn"
+                    data-nav-link
+                    >Log out</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </nav>
+
+          <div class="header-bottom-actions">
+            <button class="enableEthereumButton btn btn-connect">
+              Connect
+            </button>
+            <div class="dropdown">
+              <span
+                class="showAccount btn btn-connect"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+              </span>
+              <!-- <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item logout-btn" href="index.html">Log Out</a></li> -->
+              <!-- <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li> -->
+              <!-- </ul> -->
+            </div>
+
+            <button
+              class="header-bottom-actions-btn"
+              data-nav-open-btn
+              aria-label="Open Menu"
+            >
+              <ion-icon name="menu-outline"></ion-icon>
+
+              <span>Menu</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="regContainer">
+        <div class="main-box">
+          <div class="row center-box">
+            <h3>Change Price</h3>
+            <div class="col-md-4 form-bg">
+              <p>
+                Metamask Address:
+                <input
+                  type="text"
+                  id="MetaAdd"
+                  placeholder="Metamask Address"
+                  disabled
+                />
+              </p>
+
+              <p>
+                Property Id:
+                <input
+                  type="number"
+                  id="PropertyId"
+                  placeholder="Property Id"
+                />
+              </p>
+              <p>
+                New Property Price:
+                <input
+                  type="number"
+                  id="PropertyPrice"
+                  placeholder="Property Price"
+                />
+              </p>
+
+              <div id="changeprice">
+                <button
+                  type="submit"
+                  class="btn btn-primary register"
+                  style="font-size: 1.3rem"
+                  onclick="App.changeprice()"
+                >
+                  Submit
+                </button>
+              </div>
+            </div>
+            <!-- end of col -->
+          </div>
+        </div>
+        <!-- end of row -->
+      </div>
+    </main>
+
+    <script>
+      console.log("Hii");
+      const ethereumButton = document.querySelector(".enableEthereumButton");
+      // const sendEthButton = document.querySelector('.sendEthButton');
+      const showAccount = document.querySelector(".showAccount");
+      const dropdown = document.querySelector(".dropdown");
+      let accounts2 = [];
+      var account;
+      window.userWalletAddress = null;
+      //Sending Ethereum to an address
+
+      window.addEventListener("load", function () {
+        if (!window.localStorage.getItem("userWalletAddress")) {
+          console.log("Does not exist");
+          console.log(dropdown);
+          dropdown.style.display = "none";
+        } else {
+          account = window.localStorage.getItem("userWalletAddress");
+          console.log(window.localStorage.getItem("userWalletAddress"));
+          console.log("exist");
+          ethereumButton.style.display = "none";
+
+          var arrr = account.substr(2, 5) + "..." + account.slice(-4);
+          console.log(arrr);
+          showAccount.innerHTML = arrr;
+          const MetaAdd = document.querySelector("#MetaAdd");
+          MetaAdd.value = account;
+        }
+      });
+
+      ethereumButton.addEventListener("click", () => {
+        getAccount();
+      });
+      ethereum.on("accountsChanged", function (accounts2) {
+        // Time to reload your interface with accounts2[0]!
+      });
+      async function getAccount() {
+        accounts2 = await ethereum.request({ method: "eth_requestAccounts" });
+        if (accounts2) {
+          account = accounts2[0];
+          showAccount.innerHTML = account;
+          window.userWalletAddress = account;
+          window.localStorage.setItem("userWalletAddress", account);
+          window.location.href = "register.html";
+          showUserDashboard();
+        } else {
+          alert("wallet not found");
+        }
+      }
+
+      const showUserDashboard = async () => {
+        // if the user is not logged in - userWalletAddress is null
+        if (!window.userWalletAddress) {
+          // return from the function
+          // return false;
+        } else {
+          console.log(window.userWalletAddress);
+          console.log("You are Logged in !!");
+          const balance = await window.Web3.eth.getBalance(
+            window.userWalletAddress
+          );
+
+          // convert the balance to ether
+          console.log(web3.utils.fromWei(balance, "ether"));
+        }
+      };
+
+      const logout = () => {
+        window.userWalletAddress = null;
+        window.localStorage.removeItem("userWalletAddress");
+      };
+      document.querySelector(".logout-btn").addEventListener("click", logout);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- 
+    - favicon
+  -->
+    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml" />
+
+    <link rel="stylesheet" href="../css/style.css" />
+
+    <script src="../main.js"></script>
+
+    <title>All Properties</title>
+
+    <!-- 
+    - google font link
+  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      var char = "";
+      // var propDetails = await App.getDetails();
+      window.onload = function () {
+        setTimeout(function () {
+          var propDetails = App.getAllPropertyDetails();
+        }, 1000);
+      };
+
+      console.log("char", char);
+    </script>
+  </head>
+  <body>
+    <header class="header" data-header>
+      <div class="overlay" data-overlay></div>
+
+      <div class="header-bottom">
+        <div class="container">
+          <a href="#" class="logo">
+            <img
+              class="landscape"
+              src="./images/logo1.png"
+              alt="Homeverse logo"
+              style="object-fit: cover; height: 56px; width: 245px"
+            />
+          </a>
+
+          <nav class="navbar" data-navbar>
+            <div class="navbar-top">
+              <a href="#" class="logo">
+                <img src="./images/logo.png" alt="Homeverse logo" />
+              </a>
+
+              <button
+                class="nav-close-btn"
+                data-nav-close-btn
+                aria-label="Close Menu"
+              >
+                <ion-icon name="close-outline"></ion-icon>
+              </button>
+            </div>
+
+            <div class="navbar-bottom">
+              <ul class="navbar-list">
+                <li>
+                  <a href="index.html" class="navbar-link" data-nav-link
+                    >Home</a
+                  >
+                </li>
+
+                <li>
+                  <a href="#about" class="navbar-link" data-nav-link>About</a>
+                </li>
+
+                <li>
+                  <a
+                    class="navbar-link"
+                    data-nav-link
+                    onclick="App.propertyDetails(1)"
+                    >Service</a
+                  >
+                </li>
+
+                <li>
+                  <a href="#property" class="navbar-link" data-nav-link
+                    >Property</a
+                  >
+                </li>
+
+                <li>
+                  <a href="" class="navbar-link" data-nav-link>Blog</a>
+                </li>
+
+                <li>
+                  <a
+                    href="index.html"
+                    class="navbar-link logout-btn"
+                    data-nav-link
+                    >Log out</a
+                  >
+                </li>
+                <li>
+                  <a href="#contact" class="navbar-link" data-nav-link
+                    >Contact</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </nav>
+
+          <div class="header-bottom-actions">
+            <button class="enableEthereumButton btn btn-connect">
+              Connect
+            </button>
+            <div class="dropdown">
+              <span
+                class="showAccount btn btn-connect"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+              </span>
+              <!-- <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item logout-btn" href="index.html">Log Out</a></li> -->
+              <!-- <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li> -->
+              <!-- </ul> -->
+            </div>
+
+            <button
+              class="header-bottom-actions-btn"
+              data-nav-open-btn
+              aria-label="Open Menu"
+            >
+              <ion-icon name="menu-outline"></ion-icon>
+
+              <span>Menu</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <article>
+        <section class="property" id="property">
+          <div class="container">
+            <p class="section-subtitle">Properties</p>
+
+            <h2 class="h2 section-title">Featured Listings</h2>
+
+            <ul class="property-list has-scrollbar" id="propList"></ul>
+          </div>
+        </section>
+      </article>
+    </main>
+
+    <script>
+      console.log("Hii");
+      const ethereumButton = document.querySelector(".enableEthereumButton");
+      // const sendEthButton = document.querySelector('.sendEthButton');
+      const showAccount = document.querySelector(".showAccount");
+      const dropdown = document.querySelector(".dropdown");
+      let accounts2 = [];
+      var account;
+      window.userWalletAddress = null;
+      //Sending Ethereum to an address
+
+      window.addEventListener("load", function () {
+        if (!window.localStorage.getItem("userWalletAddress")) {
+          console.log("Does not exist");
+          console.log(dropdown);
+          dropdown.style.display = "none";
+        } else {
+          account = window.localStorage.getItem("userWalletAddress");
+          console.log(window.localStorage.getItem("userWalletAddress"));
+          console.log("exist");
+          ethereumButton.style.display = "none";
+
+          var arrr = account.substr(2, 5) + "..." + account.slice(-4);
+          console.log(arrr);
+          showAccount.innerHTML = arrr;
+          const MetaAdd = document.querySelector("#MetaAdd");
+          MetaAdd.value = account;
+        }
+      });
+
+      ethereumButton.addEventListener("click", () => {
+        getAccount();
+      });
+      ethereum.on("accountsChanged", function (accounts2) {
+        // Time to reload your interface with accounts2[0]!
+      });
+      async function getAccount() {
+        accounts2 = await ethereum.request({ method: "eth_requestAccounts" });
+        if (accounts2) {
+          account = accounts2[0];
+          showAccount.innerHTML = account;
+          window.userWalletAddress = account;
+          window.localStorage.setItem("userWalletAddress", account);
+          window.location.href = "register.html";
+          showUserDashboard();
+        } else {
+          alert("wallet not found");
+        }
+      }
+
+      const showUserDashboard = async () => {
+        // if the user is not logged in - userWalletAddress is null
+        if (!window.userWalletAddress) {
+          // return from the function
+          // return false;
+        } else {
+          console.log(window.userWalletAddress);
+          console.log("You are Loggewd in !!");
+          const balance = await window.Web3.eth.getBalance(
+            window.userWalletAddress
+          );
+
+          // convert the balance to ether
+          console.log(web3.utils.fromWei(balance, "ether"));
+        }
+      };
+
+      const logout = () => {
+        window.userWalletAddress = null;
+        window.localStorage.removeItem("userWalletAddress");
+      };
+      document.querySelector(".logout-btn").addEventListener("click", logout);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script src="../main.js"></script>
+  </head>
+
+  <body>
+    <ul class="property-list has-scrollbar" id="pImage"></ul>
+
+    <!-- <img id="image" alt="Image from IPFS Pinata" /> -->
+    <script>
+      const image = document.getElementById("image");
+
+      let propImages;
+
+      window.onload = function () {
+        setTimeout(function () {
+          App.getPropertyImages(2).then((result) => {
+            console.log("result:jkhbkjbll ", result), (propImages = result);
+          });
+        }, 1000);
+      };
+
+      // const IPFS_HASH = 'QmWHasgiPmmcW4U5hVJ9iuZgwj2SccSYWXhkyimmcbBZXy';
+
+      // fetch(`https://gateway.pinata.cloud/ipfs/${IPFS_HASH}`)
+      //     .then(response => {
+      //         if (!response.ok) {
+      //             throw new Error('Error retrieving image');
+      //         }
+      //         image.src = response.url;
+      //     })
+      //     .catch(error => console.error(error));
+    </script>
+  </body>
+</html>

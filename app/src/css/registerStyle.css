@@ -1,0 +1,70 @@
+body {
+  background-color: #f5f5f5;
+}
+
+.regContainer {
+  display: flex;
+  margin: 40px 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-box {
+  background-color: #fff;
+  padding: 25px 35px;
+  border: #ff5a3d;
+  border-style: solid;
+  border-radius: 5px;
+  border-width: 2px;
+
+  color: var(--dark-jungle-green);
+  font-family: var(--ff-poppins);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-500);
+  transition: var(--transition);
+}
+
+h3 {
+  font-size: 35px;
+  text-align: center;
+  margin-bottom: 15px;
+  color: #071a1d;
+}
+
+p {
+  font-size: 20px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+input[type="number"],
+select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input::-webkit-input-placeholder {
+  font-family: "myFont", Arial, Helvetica, sans-serif;
+}
+
+input:-moz-placeholder {
+  font-family: "myFont", Arial, Helvetica, sans-serif;
+}
+
+#register,
+#property {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.btn {
+  padding: 10px 40px;
+}
